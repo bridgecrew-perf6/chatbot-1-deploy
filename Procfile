@@ -1,1 +1,1 @@
-web: gunicorn -b :5000 --workers 4 --threads 100 wsgi:app
+web: gunicorn -k flask_sockets.worker wsgi:app
