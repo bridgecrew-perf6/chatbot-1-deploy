@@ -1,1 +1,1 @@
-web: gunicorn --workers 4 --threads 100 wsgi:app
+web: gunicorn --workers 2 --threads 50 wsgi:app
