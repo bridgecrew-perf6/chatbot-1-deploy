@@ -13,7 +13,7 @@ with open('app/train_data.json', 'r') as f:
 with open('app/symptoms_questions.json', 'r') as q:
     questions = json.load(q)
 
-FILE = "data.pth"
+FILE = "app/data.pth"
 data = torch.load(FILE)
 
 input_size = data["input_size"]
@@ -97,8 +97,10 @@ def handel_sik_dog(ws, bot_name, symptoms_answers_array):
                 ws.send(response)
                 symptoms_answers_array.clear()
         else:
-            print("return another question.....")
+            ws.send(f"{bot_name} : return another question.....")
+            # print("")
             # return
     else:
-        print("Another questions")
+        ws.send(f"{bot_name} : Another questions")
+        # print("Another questions")
         # another response
