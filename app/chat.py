@@ -29,40 +29,43 @@ model.eval()
 
 
 def call_chatbot(ws):
-    bot_name = "Jon"
-    ws.send("How can i help you ?")
+    try:
+        bot_name = "Jon"
+        ws.send("How can i help you ?")
 
-    symptoms_answers_array = []
+        symptoms_answers_array = []
 
-    while True:
-        sentence = ws.receive()
+        while True:
+            sentence = ws.receive()
 
-        if sentence == "quit":
-            symptoms_answers_array.clear()
-            break
+            if sentence == "quit":
+                symptoms_answers_array.clear()
+                break
 
-        sentence = tokenize(sentence)
-        x = bag_of_words(sentence, all_words)
-        x = x.reshape(1, x.shape[0])
-        x = torch.from_numpy(x).to(device)
+            sentence = tokenize(sentence)
+            x = bag_of_words(sentence, all_words)
+            x = x.reshape(1, x.shape[0])
+            x = torch.from_numpy(x).to(device)
 
-        output = model(x)
-        _, predicted = torch.max(output, dim=1)
-        tag = tags[predicted.item()]
+            output = model(x)
+            _, predicted = torch.max(output, dim=1)
+            tag = tags[predicted.item()]
 
-        probs = torch.softmax(output, dim=1)
-        prob = probs[0][predicted.item()]
+            probs = torch.softmax(output, dim=1)
+            prob = probs[0][predicted.item()]
 
-        if prob.item() > 0.75:
-            for intent in intents["intents"]:
-                if tag == intent["tag"]:
-                    print(tag)
-                    ws.send(f"{bot_name} : {random.choice(intent['responses'])}")
-                    if tag == "sick":
-                        handel_sik_dog(ws, bot_name, symptoms_answers_array)
-        else:
-            ws.send(f"{bot_name} : Im sorry i dont understand your question")
-            # print(f"{bot_name}: Im sorry i dont understand your question")
+            if prob.item() > 0.75:
+                for intent in intents["intents"]:
+                    if tag == intent["tag"]:
+                        print(tag)
+                        ws.send(f"{bot_name} : {random.choice(intent['responses'])}")
+                        if tag == "sick":
+                            handel_sik_dog(ws, bot_name, symptoms_answers_array)
+            else:
+                ws.send(f"{bot_name} : Im sorry i dont understand your question")
+                # print(f"{bot_name}: Im sorry i dont understand your question")
+    except Exception as e:
+        print(e)
 
 
 def handel_sik_dog(ws, bot_name, symptoms_answers_array):
