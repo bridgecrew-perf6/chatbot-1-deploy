@@ -7,10 +7,10 @@ from app.predict_illnes import get_illness
 
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
-with open('train_data.json', 'r') as f:
+with open('app/train_data.json', 'r') as f:
     intents = json.load(f)
 
-with open('symptoms_questions.json', 'r') as q:
+with open('app/symptoms_questions.json', 'r') as q:
     questions = json.load(q)
 
 FILE = "data.pth"

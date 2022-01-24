@@ -22,7 +22,7 @@ def get_illness(symptoms_array=[]):
 
     try:
         intents = ""
-        with open('symptoms_db.json', 'r') as f:
+        with open('app/symptoms_db.json', 'r') as f:
             intents = json.load(f)
 
             for symptom_array in symptoms_array:

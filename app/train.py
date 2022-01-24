@@ -9,7 +9,7 @@ from torch.utils.data import Dataset, DataLoader
 from model import NeuralNet
 
 # with open('intent.json', 'r') as f:
-with open('train_data.json', 'r') as f:
+with open('app/train_data.json', 'r') as f:
     intents = json.load(f)
 
 all_words = []
