@@ -1,10 +1,9 @@
 import random
 import json
 import torch
-import numpy as np
-from model import NeuralNet
-from nltk_utils import bag_of_words, tokenize
-from predict_illnes import get_illness
+from app.model import NeuralNet
+from app.nltk_utils import bag_of_words, tokenize
+from app.predict_illnes import get_illness
 
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
