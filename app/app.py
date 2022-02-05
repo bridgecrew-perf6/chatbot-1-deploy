@@ -3,7 +3,6 @@ from flask_sock import Sock
 from app.chat import call_chatbot
 
 app = Flask(__name__)
-app.debug = True
 sock = Sock(app)
 
 

@@ -31,7 +31,7 @@ model.eval()
 def call_chatbot(ws):
     try:
         bot_name = "Jon"
-        ws.send("How can i help you ?")
+        ws.send(f"{bot_name} : How can i help you ?")
 
         symptoms_answers_array = []
 
@@ -63,7 +63,7 @@ def call_chatbot(ws):
                             handel_sik_dog(ws, bot_name, symptoms_answers_array)
             else:
                 ws.send(f"{bot_name} : Im sorry i dont understand your question")
-                # print(f"{bot_name}: Im sorry i dont understand your question")
+
     except Exception as e:
         print(e)
 
