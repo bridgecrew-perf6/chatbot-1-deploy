@@ -60,6 +60,18 @@
       "responses": [
         "Hi Got Home page click on Item Sellers page and search your item you can contact the seller from making phone call with him"
       ]
+    },
+
+       {
+      "tag": "ending",
+      "patterns": [
+        "ok",
+        "Thank you",
+        "bye"
+      ],
+      "responses": [
+        "See you again (:"
+      ]
     }
   ]
 }
