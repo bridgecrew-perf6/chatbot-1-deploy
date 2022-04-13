@@ -31,7 +31,7 @@ model.eval()
 def call_chatbot(ws):
     try:
         bot_name = "Jon"
-        ws.send(f"{bot_name} : How can i help you ?")
+        ws.send(f"How can i help you ?")
 
         symptoms_answers_array = []
 
@@ -59,8 +59,8 @@ def call_chatbot(ws):
                     if tag == intent["tag"]:
                         print(tag)
                         ws.send(f"{bot_name} : {random.choice(intent['responses'])}")
-                        if tag == "sick":
-                            handel_sik_dog(ws, bot_name, symptoms_answers_array)
+                        # if tag == "sick":
+                            # handel_sik_dog(ws, bot_name, symptoms_answers_array)
             else:
                 ws.send(f"{bot_name} : Im sorry i dont understand your question")
 

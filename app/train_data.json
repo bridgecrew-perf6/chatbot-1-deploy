@@ -12,13 +12,43 @@
         "sick"
       ],
       "responses": [
-        "Please note i am only can help for the dog illness only. \n Ok, I will ask simple question from you, if your ok with that please type 'Yes' to continue"
+        "Hi calm down you can find a VET using our application for that Goto Make appointments and search by your nearest town \n after it request the appointment. your appointments on clicking bell icon "
+      ]
+    },
+        {
+      "tag": "greeting",
+      "patterns": [
+        "Hi",
+        "Hey",
+        "How are you",
+        "Is anyone there?",
+        "Hello",
+        "Good day"
+      ],
+      "responses": [
+        "Hey :-)",
+        "Hello, thanks for visiting",
+        "Hi there, what can I do for you?",
+        "Hi there, how can I help?"
+      ]
+    },
+
+      {
+      "tag": "pay",
+      "patterns": [
+        "How to pay",
+        "How can pay for the item",
+        "Pay",
+        "Can use visa card for pay"
+      ],
+      "responses": [
+        "Hi After make contact with seller your can use any method for pay but we recommended way is Cash on delivery method"
       ]
     },
       {
       "tag": "shop",
       "patterns": [
-        "i want to buy food",
+        "I want to buy food",
         "where is dog items",
         "dog items",
         "dog",
@@ -28,7 +58,7 @@
         "How can i buy dog items"
       ],
       "responses": [
-        "Got Home page click on drop down"
+        "Hi Got Home page click on Item Sellers page and search your item you can contact the seller from making phone call with him"
       ]
     }
   ]
